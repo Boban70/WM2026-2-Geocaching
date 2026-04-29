@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>WM2026 #1 Checker</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f0f0f0;
+  }
+
+  .container {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  #ergebnis {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+<h2>WM2026 #1 Checker</h2>
+
+<!-- 🔽 Dropdown -->
+<label>Station wählen:</label>
+<select id="station">
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+</select>
+
+<br><br>
+
+<!-- 🔤 Eingabe -->
+<input type="text" id="wort" placeholder="Wort eingeben">
+<button onclick="check()">Prüfen</button>
+
+<p id="ergebnis"></p>
+
+<script>
+function check() {
+  let wort = document.getElementById("wort").value
+    .toLowerCase()
+    .trim();
+
+  let station = document.getElementById("station").value;
+
+  // 🔥 Lösungen pro Station
+  let loesungen = {
+    "A": { "schild": 0,
+          "sponsor": 0,
+          "logo": 0,
+          "hard rock": 0,
+          "hard rock cafe": 0,
+            },
+    "B": { "werbung": 0,
+            "plakat": 0,
+            "plakat": 0,
+            "kia": 0,
+            "billboard": 0,
+           },
+    "C": { "rollstuhl": 0,
+            "rollstühle": 0,
+            "leute": 0,
+            "fans": 0,
+            "menschen": 0,
+            "personen": 0,
+            "person": 0,
+            "rollstuhlfahrer": 0,
+           },
+    "D": { "fahne": 0,
+            "nationalfahe": 0,
+            "usa": 0, 
+            "amerika": 0,
+            "mast": 0,
+            "fahnenmast": 0,
+           },
+    "E": { "bier": 0,
+            "corona": 0,
+            "werbung": 0,
+            "becher": 0,
+            "billboard": 0,
+            "plakat": 0,
+           },
+    "F": { "kasten": 0,
+            "tor": 0,
+            "rahmen": 0,
+            "netz": 0,
+            "tore": 0,
+           },
+    "G": { "geländer": 0,
+            "gelaender": 0,
+            "metal": 0,
+            "begrenzung": 0,
+           },
+    "H": { "billboard": 99,
+           "anzeige": 0,
+            "anzeige tafel": 0,
+            "tafel": 0,
+            "scoreboard": 0,
+           }
+  };
+
+  if (station in loesungen && wort in loesungen[station]) {
+    document.getElementById("ergebnis").innerText =
+      "Station " + station + ": Richtig! Dein Wert ist: " + loesungen[station][wort];
+  } else {
+    document.getElementById("ergebnis").innerText = "Nicht richtig!";
+  }
+}
+</script>
+
+</body>
+</html>
