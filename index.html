@@ -147,6 +147,8 @@ function check() {
            }
   };
 
+  let output = document.getElementById("ergebnis");
+  
   if (station in loesungen && wort in loesungen[station]) {
     document.getElementById("ergebnis").innerText =
       "Station " + station + ": Richtig! Dein Wert ist: " + loesungen[station][wort];
