@@ -150,10 +150,10 @@ function check() {
   if (station in loesungen && wort in loesungen[station]) {
     document.getElementById("ergebnis").innerText =
       "Station " + station + ": Richtig! Dein Wert ist: " + loesungen[station][wort];
-      output.style.color = "green";
+      output.style.color = "#0da815";
   } else {
     document.getElementById("ergebnis").innerText = "Nicht richtig!";
-    output.style.color = "red";
+    output.style.color = "#d11919";
   }
 }
 </script>
