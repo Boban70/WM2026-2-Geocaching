@@ -59,7 +59,7 @@
   
 <h2>WM2026 #2 Checker</h2>
 
-<!-- 🔽 Dropdown -->
+<!--  Dropdown -->
 <label>Station wählen:</label>
 <select id="station">
   <option value="A">A</option>
@@ -74,7 +74,7 @@
 
 <br><br>
 
-<!-- 🔤 Eingabe -->
+<!--  Eingabe -->
 <input type="text" id="wort" placeholder="Wort eingeben">
 <button onclick="check()">Prüfen</button>
 
@@ -88,19 +88,19 @@ function check() {
 
   let station = document.getElementById("station").value;
 
-  // 🔥 Lösungen pro Station
+  //  Lösungen pro Station
   let loesungen = {
-    "A": { "bier": 0,
-          "getränk": 0,
-          "becher": 0,
-          "glas": 0,
-          "trinken": 0,
+    "A": { "bier": 6,
+          "getränk": 6,
+          "becher": 6,
+          "glas": 6,
+          "trinken": 6,
             },
-    "B": { "stern": 0,
-            "mittelfeld": 0,
-            "logo": 0,
-            "club": 0,
-            "verein": 0,
+    "B": { "stern": 7,
+            "mittelfeld": 7,
+            "logo": 7,
+            "club": 7,
+            "verein": 7,
            },
     "C": { "fahne": 0,
             "blau": 0,
@@ -108,50 +108,52 @@ function check() {
             "fahnenmast": 0,
             "mast": 0,
            },
-    "D": { "atlanta": 0,
-            "schrift": 0,
-            "spielfeld": 0, 
-            "abdeckung": 0,
-            "schriftzug": 0,
+    "D": { "atlanta": 1,
+            "schrift": 1,
+            "spielfeld": 1, 
+            "abdeckung": 1,
+            "schriftzug": 1,
            },
-    "E": { "billboard": 0,
-            "anzeige": 0,
-            "werbung": 0,
-            "monitor": 0,
-            "scoreboard": 0,
-            "plakat": 0,
+    "E": { "billboard": 9,
+            "anzeige": 9,
+            "werbung": 9,
+            "monitor": 9,
+            "scoreboard": 9,
+            "plakat": 9,
            },
-    "F": { "werbung": 0,
-            "anzeige": 0,
-            "billboard": 0,
-            "monitor": 0,
-            "plakat": 0,
+    "F": { "werbung": 8,
+            "anzeige": 8,
+            "billboard": 8,
+            "monitor": 8,
+            "plakat": 8,
            },
-    "G": { "menschen": 0,
-            "mensch": 0,
-            "leute": 0,
-            "polizei": 0,
-            "ordner": 0,
-            "security": 0,
-            "police": 0,
-            "person": 0,
-            "personen": 0,
+    "G": { "menschen": 2,
+            "mensch": 2,
+            "leute": 2,
+            "polizei": 2,
+            "ordner": 2,
+            "security": 2,
+            "police": 2,
+            "person": 2,
+            "personen": 2,
            },
-    "H": { "nummer": 99,
-           "53": 0,
-            "t-shirt": 0,
-            "shirt": 0,
-            "t shirt": 0,
-            "oberteil": 0,
-            "pullover": 0,
+    "H": { "nummer": 3,
+           "53": 3,
+            "t-shirt": 3,
+            "shirt": 3,
+            "t shirt": 3,
+            "oberteil": 3,
+            "pullover": 3,
            }
   };
 
   if (station in loesungen && wort in loesungen[station]) {
     document.getElementById("ergebnis").innerText =
       "Station " + station + ": Richtig! Dein Wert ist: " + loesungen[station][wort];
+      output.style.color = "green";
   } else {
     document.getElementById("ergebnis").innerText = "Nicht richtig!";
+    output.style.color = "red";
   }
 }
 </script>
