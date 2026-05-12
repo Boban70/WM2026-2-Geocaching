@@ -158,6 +158,13 @@ function check() {
     output.style.color = "#d11919";
   }
 }
+  
+document.getElementById("wort").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    check();
+  }
+});
+  
 </script>
 
 </body>
